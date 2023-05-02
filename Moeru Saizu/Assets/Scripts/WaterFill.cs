@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Water : MonoBehaviour
+public class WaterFill : MonoBehaviour
 {
     public GameObject fillBar;
-    public GameObject fillTempBar;
-    Image tempBar;
+    public GameObject fillHeatBar;
+    Image heatBar;
     Image bar;
-    public float currentTemp;
+    public float currentHeat;
     public float currentWater;
-    
+
 
     public void SetWater(float water)
     {
@@ -20,21 +20,19 @@ public class Water : MonoBehaviour
 
     public void SetTemp(float temperature)
     {
-        tempBar.fillAmount = temperature;
+        heatBar.fillAmount = temperature;
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         bar = fillBar.GetComponent<Image>();
-        tempBar = fillTempBar.GetComponent<Image>();
+        heatBar = fillHeatBar.GetComponent<Image>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-        if (bar.fillAmount >= 0)
+
+        if(bar.fillAmount > 0)
         {
             if (Input.GetMouseButton(0))
             {
@@ -43,19 +41,17 @@ public class Water : MonoBehaviour
         }
         else if (bar.fillAmount <= 0)
         {
-            currentTemp += 0.2f * Time.deltaTime;
+            currentHeat += 0.2f * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
-            currentTemp = 0f;
+            currentHeat -= 0.3f * Time.deltaTime;
             currentWater += 0.2f * Time.deltaTime;
         }
-        
+
         SetWater(currentWater);
-        SetTemp(currentTemp);
+        SetTemp(currentHeat);
     }
-
-
 
 }

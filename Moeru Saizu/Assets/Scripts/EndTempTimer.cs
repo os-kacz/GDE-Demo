@@ -6,18 +6,18 @@ using UnityEngine.UI;
 public class EndTempTimer : MonoBehaviour
 {
     public GameObject fillTempBar;
-    Image bar;
+    Image tempbar;
     public float currentTemp;
 
     public void SetTemp(float temp)
     {
-        bar.fillAmount = temp;
+        tempbar.fillAmount = temp;
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        bar = fillTempBar.GetComponent<Image>();
+        tempbar = fillTempBar.GetComponent<Image>();
     }
 
     // Update is called once per frame
