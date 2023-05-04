@@ -37,8 +37,7 @@ public class Bigger : MonoBehaviour
         if(levelScript.lvl > tempLvl)
         {
             player.transform.localScale = new Vector3((float)tempLvl + 3, (float)tempLvl + 3, (float)tempLvl + 3);
-            cameraScript.m_Offset = new Vector3(0f, 0.7f, tempZ-= 3);
-            water.transform.localScale = new Vector3(tempWater + 0.6f, tempWater + 0.6f, tempWater + 0.6f);
+            cameraScript.m_Offset = new Vector3(0f, 0.7f, tempZ-= 6);
             tempLvl = levelScript.lvl;
         }
     }
