@@ -36,12 +36,10 @@ public class LvlScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.X))
+        if (Input.GetMouseButton(1))
         {
-            if (Input.GetKey(KeyCode.P))
-            {
-                currentLvl += 0.3f * Time.deltaTime;
-            }
+            currentLvl += 0.5f * Time.deltaTime;
+            Debug.Log("levelling up");
         }
 
         if(currentLvl >= 1)
